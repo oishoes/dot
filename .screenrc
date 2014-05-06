@@ -2,8 +2,135 @@ autodetach on
 startup_message off
 defscrollback 50000
 defmonitor on
-caption always "%{= wk} %-w%{=bu dr}%n %t%{-}%+w %= %{=b wk}[%0`] [%l] %{=b wk}%y/%m/%d %{=b wr}%c"
+#caption always "%{= wk} %-w%{=bu dr}%n %t%{-}%+w %= %{=b wk}[%0`] [%l] %{=b wk}%y/%m/%d %{=b wr}%c"
 backtick 0 0 0 echo ${ttyname}
 escape ^Tt
 termcapinfo xterm* ti@:te@
 term xterm-256color
+
+
+# list of all windows is displayed in the blank window(-b) for visual window selection.
+# override default `w'(windows) mapping.
+bind w  windowlist -b
+bind ^W windowlist -b -m # sorting by most-recentry-used list.
+ 
+# move cursor to begining of scrollback buffer(and move to the leftmost column of the window top)
+bindkey -m ;b stuff "g/:\015\006\002"
+ 
+# refuses yet another hack in rpm packaged screenrc.
+# both ] and ^] does write the paste (default unnamed) buffer.
+bind ^] paste .
+ 
+# enable background-color-erase setting.
+defbce on
+ 
+# use bright colors for bold text.
+attrcolor b '.I'
+ 
+# the $TERM variable set to `xterm' for various environment.
+term xterm
+ 
+# enable 256 color
+termcapinfo xterm 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
+ 
+# don't resize terminal width when re-attached.
+termcapinfo xterm 'is=\E[r\E[m\E[2J\E[H\E[?7h\E[?1;4;6l'
+ 
+# changes the windowlist format to suit caption/hardstatus
+windowlist title  '%{u .g}Num Flags Title%=[0-9] select the number [movement] j,C-n:Down k,C-p:Up (C-)f:PageDown (C-)b:PageUp'
+windowlist string '%{.g}%3n %{.y}%f%09=%{dg} %t %='
+ 
+# Give me some info at the bottom of each window and the bottom of screen like scrollable tabbed bar.
+# e.g.:
+# +----------------------------------------------------------------------------+
+# |                                                                            |
+# |                                                                            |
+# |                                                                            |
+# |                                                                            |
+# +----------------------------------------------------------------------------+
+# |11     top                                                                  | <--- caption (bellow each window)
+# +----------------------------------------------------------------------------+
+# |                                                                            |
+# |                                                                            |
+# |                                                                            |
+# |                                                                            |
+# |                                                                            |
+# |                                                                            |
+# +----------------------------------------------------------------------------+
+# | 2     vim                                                                  | <--- caption
+# +----------------------------------------------------------------------------+
+# |                                                                            |
+# |                                                                            |
+# +----------------------------------------------------------------------------+
+# | 3(L)  tail                                                                 | <--- caption
+# +----------------------------------------------------------------------------+
+# |09/24 13:23:54 hostname 0 zsh  1 man  2 vim  3 tail  11 to... (load average)| <--- hardstatus
+# +----------------------------------------------------------------------------+
+ 
+#caption always '%?%F%{= gW}%:%{= Kk}%?%2n%f%07=%t%='
+# caption string description:
+#
+# %?          - Start of a conditional statement.
+#  %F         - Use this part of the statement if the window has focus (i.e. it
+#               is the only window or the currently active one).
+#  %{= gW}    - bright white on green.
+# %:          - else
+#  %{= Kk}    - bright black on black
+# %?          - End conditional statement.
+#  %2n        - number of the current window with left 2 padding
+#  %f         - flags for current window
+#  %07=       - left 7 padding for window number and flags
+#  %t         - title of current window
+#  %=         - truncation/padding point
+ 
+hardstatus alwayslastline '%m/%d %02c:%s %{= .g}%H%{-} %L=%-w%45L>%{=u d.}%n %t%{-}%+w %-17<%=%{= .y}(%l)'
+# hardstatus string description:
+#
+#  %m         - Two-letter month number
+#  %d         - Two-letter day number
+#  %02c       - time (hh:mm) in 24 hour format
+#  %s         - seconds
+# %{= .g}     - green color on default background
+#  %H         - host name.
+# %{-}        - undo last color change(so now we're back to default color)
+#  %L=        - left padding start here
+#  %-w        - window list up to but not including the current window (-)
+#  %45L>      - truncation/padding marker; place this point about 45% of the
+#               way into the display area (45)
+# %{=u g.}    - default color on green, and underline.
+#  %n         - number of the current window.
+#  %t         - title of current window.
+# %{-}        - undo last color change
+#  %+w        - window list from the next window on (-)
+#  %-17<      - truncation/padding point. place this point zero spaces (0)
+#               from the right margin (-).
+#  %=         - truncation/paddion point.
+# %{= .y}     - yellow on default background.
+#  %l         - host load average.
+ 
+# APPENDIX: STRING ESCAPES (make extracts from screen (1))
+#
+# The attribute set can either be specified as hexadecimal number
+# or a combination of the following letters:
+#
+#   d     dim
+#   u     underline
+#   b     bold
+#   r     reverse
+#   s     standout
+#   B     blinking
+#
+# Colors are coded either as a hexadecimal number or two letters specifying
+# the desired background and foreground color (in that order).
+# The following colors are known:
+#
+#   k     black
+#   r     red
+#   g     green
+#   y     yellow
+#   b     blue
+#   m     magenta
+#   c     cyan
+#   w     white
+#   d     default color
+#   .     leave color unchanged

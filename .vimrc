@@ -65,7 +65,7 @@ set statusline+=\ \ \ %<%20.30(%{hostname()}:%{CurDir()}%)\
 set statusline+=%=%-10.(%l,%c%V%)\ %p%%/%L
 
 set showcmd			"入力中のコマンドをステータスに表示
-set cmdheight=2		"コマンドラインを表示
+set cmdheight=1		"コマンドラインを表示
 
 function! CurDir()
     let curdir = substitute(getcwd(), $HOME, "~", "")

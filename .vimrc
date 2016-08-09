@@ -1,71 +1,76 @@
-set number                      "¹Ô¿ôÉ½¼¨
-set nocompatible                " vi¤È¸ß´¹¤ò»ı¤¿¤Ê¤¤
-set backspace=indent,eol,start  "¥Ğ¥Ã¥¯¥¹¥Ú¡¼¥¹¤Çºï½ü¤Ç¤­¤ëÊª¤ò»ØÄê¤¹¤ë
-set nobackup                    "¥Ğ¥Ã¥¯¥¢¥Ã¥×¤ò¤È¤é¤Ê¤¤
-set noswapfile                  "¥¹¥ï¥Ã¥×¥Õ¥¡¥¤¥ë¤òºî¤é¤Ê¤¤
-set title                       "¥¿¥¤¥È¥ë¤òÉ½¼¨¤¹¤ë
-set wrap                        "ÀŞ¤êÊÖ¤·
-set autoread                    "Â¾¤Ç¥Õ¥¡¥¤¥ë¤ËÊÑ¹¹¤¬¤¢¤Ã¤¿¤é¼«Æ°ÆÉ¤ß¹ş¤ß
-set wildmenu                    "¥³¥Ş¥ó¥É¥é¥¤¥óÊä´°
-set wildchar=<tab>              "¥³¥Ş¥ó¥ÉÊä´°¤ò³«»Ï¤¹¤ë¥­¡¼
+set number                      "è¡Œæ•°è¡¨ç¤º
+set nocompatible                " viã¨äº’æ›ã‚’æŒãŸãªã„
+set backspace=indent,eol,start  "ãƒãƒƒã‚¯ã‚¹ãƒšãƒ¼ã‚¹ã§å‰Šé™¤ã§ãã‚‹ç‰©ã‚’æŒ‡å®šã™ã‚‹
+set nobackup                    "ãƒãƒƒã‚¯ã‚¢ãƒƒãƒ—ã‚’ã¨ã‚‰ãªã„
+set noswapfile                  "ã‚¹ãƒ¯ãƒƒãƒ—ãƒ•ã‚¡ã‚¤ãƒ«ã‚’ä½œã‚‰ãªã„
+set title                       "ã‚¿ã‚¤ãƒˆãƒ«ã‚’è¡¨ç¤ºã™ã‚‹
+set wrap                        "æŠ˜ã‚Šè¿”ã—
+set autoread                    "ä»–ã§ãƒ•ã‚¡ã‚¤ãƒ«ã«å¤‰æ›´ãŒã‚ã£ãŸã‚‰è‡ªå‹•èª­ã¿è¾¼ã¿
+set wildmenu                    "ã‚³ãƒãƒ³ãƒ‰ãƒ©ã‚¤ãƒ³è£œå®Œ
+set wildchar=<tab>              "ã‚³ãƒãƒ³ãƒ‰è£œå®Œã‚’é–‹å§‹ã™ã‚‹ã‚­ãƒ¼
 set wildmode=list:longest
 set completeopt=menu,preview,menuone
-set showmatch matchtime=1       "¥«¥Ã¥³ÂĞ±ş
-syntax on                       "¥·¥ó¥¿¥Ã¥¯¥¹¥Ï¥¤¥é¥¤¥È
-set cursorline                  "¥«¡¼¥½¥ë¹Ô¤ò¶¯Ä´É½¼¨
-set vb t_vb=                    "¥Ó¡¼¥×²»¤òÌÄ¤é¤µ¤Ê¤¤
+set showmatch matchtime=1       "ã‚«ãƒƒã‚³å¯¾å¿œ
+syntax on                       "ã‚·ãƒ³ã‚¿ãƒƒã‚¯ã‚¹ãƒã‚¤ãƒ©ã‚¤ãƒˆ
+set cursorline                  "ã‚«ãƒ¼ã‚½ãƒ«è¡Œã‚’å¼·èª¿è¡¨ç¤º
+set vb t_vb=                    "ãƒ“ãƒ¼ãƒ—éŸ³ã‚’é³´ã‚‰ã•ãªã„
 
-set list                        "ÉÔ²Ä»ëÊ¸»úÉ½¼¨
-set listchars=tab:>.,trail:_,extends:>,precedes:< " ÉÔ²Ä»ëÊ¸»ú¤ÎÉ½¼¨·Á¼°
+set list                        "ä¸å¯è¦–æ–‡å­—è¡¨ç¤º
+set listchars=tab:>.,trail:_,extends:>,precedes:< " ä¸å¯è¦–æ–‡å­—ã®è¡¨ç¤ºå½¢å¼
 
-"¥¯¥ê¥Ã¥×¥Ü¡¼¥É¤òWindows¤ÈÏ¢·È
 set clipboard=unnamed
-inoremap <C-h> <Left>
-inoremap <C-j> <Down>
-inoremap <C-k> <Up>
-inoremap <C-l> <Right>
-"¥«¡¼¥½¥ë¤ò¹ÔÆ¬¡¢¹ÔËö¤Ç»ß¤Ş¤é¤Ê¤¤¤è¤¦¤Ë¤¹¤ë
+
+" ç§»å‹•ãªã© <C-j>ã¯ESCã«
+inoremap <C-h> <left>
+inoremap <C-j> <esc>
+vnoremap <C-j> <esc>
+inoremap <C-k> <UP>
+inoremap <C-l> <right>
+inoremap <C-d> <delete>
+inoremap <C-w> <BS>
+
+"ã‚«ãƒ¼ã‚½ãƒ«ã‚’è¡Œé ­ã€è¡Œæœ«ã§æ­¢ã¾ã‚‰ãªã„ã‚ˆã†ã«ã™ã‚‹
 set whichwrap=b,s,h,l,<,>,[,]
 
-"¸¡º÷ÀßÄê
-set ignorecase      "ÂçÊ¸»ú¤È¾®Ê¸»ú¤ò¶èÊÌ¤·¤Ê¤¤
-set smartcase       "ÂçÊ¸»ú¤È¾®Ê¸»ú¤¬´Ş¤Ş¤ì¤Æ¤¤¤¿¤é¤½¤Î¤Ş¤Ş
-set wrapscan		"ºÇ¸å¤Ş¤Ç¤¤¤Ã¤¿¤éºÇ½é¤ËÌá¤ë
-set incsearch		"¥¤¥ó¥¯¥ê¥á¥ó¥¿¥ë¥µ¡¼¥Á
-set hlsearch		"°ìÃ×Ê¸»ú¶¯Ä´
+"æ¤œç´¢è¨­å®š
+set ignorecase      "å¤§æ–‡å­—ã¨å°æ–‡å­—ã‚’åŒºåˆ¥ã—ãªã„
+set smartcase       "å¤§æ–‡å­—ã¨å°æ–‡å­—ãŒå«ã¾ã‚Œã¦ã„ãŸã‚‰ãã®ã¾ã¾
+set wrapscan		"æœ€å¾Œã¾ã§ã„ã£ãŸã‚‰æœ€åˆã«æˆ»ã‚‹
+set incsearch		"ã‚¤ãƒ³ã‚¯ãƒªãƒ¡ãƒ³ã‚¿ãƒ«ã‚µãƒ¼ãƒ
+set hlsearch		"ä¸€è‡´æ–‡å­—å¼·èª¿
 
- "¥¨¥¹¥±¡¼¥×Æó²ó¤Ç¶¯Ä´¾Ãµî
+ "ã‚¨ã‚¹ã‚±ãƒ¼ãƒ—äºŒå›ã§å¼·èª¿æ¶ˆå»
 nnoremap <Esc><Esc> :<C-u>set nohlsearch<Return>
-"¥¿¥Ö¡Ê¥¤¥ó¥Ç¥ó¥È¡Ë¼ş¤ê
+"ã‚¿ãƒ–ï¼ˆã‚¤ãƒ³ãƒ‡ãƒ³ãƒˆï¼‰å‘¨ã‚Š
 set noautoindent
 set smartindent
 set cindent
 set expandtab
-"¥¿¥Ö¤Î¶õÇò¿ô
+"ã‚¿ãƒ–ã®ç©ºç™½æ•°
 set tabstop=4 shiftwidth=4 softtabstop=4
 
-"²ş¹Ô»ş¤Ë¼«Æ°¤Ç¥³¥á¥ó¥ÈÊ¸¤¬ÁŞÆş¤µ¤ì¤ë¤Î¤òÌµ¸ú¤Ë¤¹¤ë
+"æ”¹è¡Œæ™‚ã«è‡ªå‹•ã§ã‚³ãƒ¡ãƒ³ãƒˆæ–‡ãŒæŒ¿å…¥ã•ã‚Œã‚‹ã®ã‚’ç„¡åŠ¹ã«ã™ã‚‹
 autocmd FileType * setlocal formatoptions-=ro
 
-"Á´³Ñ¥¹¥Ú¡¼¥¹¤ò»ë³Ğ²½
+"å…¨è§’ã‚¹ãƒšãƒ¼ã‚¹ã‚’è¦–è¦šåŒ–
 highlight ZenkakuSpace cterm=underline ctermfg=lightblue guibg=#666666
 au BufNewFile,BufRead * match ZenkakuSpace /??/
 
-"Ê¸»ú¥³¡¼¥É¤ÎÀßÄê
-set encoding=EUC-JP
-set termencoding=EUC-JP
-set fileencoding=EUC-JP
-set fileencodings=EUC-JP
+"æ–‡å­—ã‚³ãƒ¼ãƒ‰ã®è¨­å®š
+set encoding=UTF-8
+set termencoding=UTF-8
+set fileencoding=UTF-8
+set fileencodings=UTF-8
 
-"¥¹¥Æ¡¼¥¿¥¹¥é¥¤¥ó¤Ë¤Ä¤¤¤Æ¤ÎÀßÄê
+"ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ãƒ©ã‚¤ãƒ³ã«ã¤ã„ã¦ã®è¨­å®š
 set laststatus=2
 set statusline=\ %{HasPaste()}%<%-15.25(%f%)%m%r%h\ %w\ \ 
 set statusline+=\ \ \ [%{&ff}/%Y/%{&enc}] 
 set statusline+=\ \ \ %<%20.30(%{hostname()}:%{CurDir()}%)\ 
 set statusline+=%=%-10.(%l,%c%V%)\ %p%%/%L
 
-set showcmd			"ÆşÎÏÃæ¤Î¥³¥Ş¥ó¥É¤ò¥¹¥Æ¡¼¥¿¥¹¤ËÉ½¼¨
-set cmdheight=1		"¥³¥Ş¥ó¥É¥é¥¤¥ó¤òÉ½¼¨
+set showcmd			"å…¥åŠ›ä¸­ã®ã‚³ãƒãƒ³ãƒ‰ã‚’ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ã«è¡¨ç¤º
+set cmdheight=1		"ã‚³ãƒãƒ³ãƒ‰ãƒ©ã‚¤ãƒ³ã‚’è¡¨ç¤º
 
 function! CurDir()
     let curdir = substitute(getcwd(), $HOME, "~", "")
@@ -93,7 +98,7 @@ endif
 endfunction  " }}}
 augroup END  " }}}
 
-" ¥«¥ì¥ó¥È¥¦¥£¥ó¥É¥¦¤Ë¤Î¤ß·ÓÀş¤ò°ú¤¯
+" ã‚«ãƒ¬ãƒ³ãƒˆã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã«ã®ã¿ç½«ç·šã‚’å¼•ã
 augroup cch
 autocmd! cch
 autocmd WinLeave * set nocursorline
@@ -115,75 +120,73 @@ endif
 
 source ~/.vimrc.bundle
 
-"¥İ¥Ã¥×¥¢¥Ã¥×¥á¥Ë¥å¡¼¤Î¥«¥é¡¼¤òÀßÄê
-" ¥Ï¥¤¥é¥¤¥È on
+"ãƒãƒƒãƒ—ã‚¢ãƒƒãƒ—ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã®ã‚«ãƒ©ãƒ¼ã‚’è¨­å®š
+" ãƒã‚¤ãƒ©ã‚¤ãƒˆ on
 syntax enable
 
 
 " neocomplcache
-let g:neocomplcache_enable_at_startup = 1 " µ¯Æ°»ş¤ËÍ­¸ú²½
-" Êä´°¤¬¼«Æ°¤Ç³«»Ï¤µ¤ì¤ëÊ¸»ú¿ô
+let g:neocomplcache_enable_at_startup = 1 " èµ·å‹•æ™‚ã«æœ‰åŠ¹åŒ–
+" è£œå®ŒãŒè‡ªå‹•ã§é–‹å§‹ã•ã‚Œã‚‹æ–‡å­—æ•°
 let g:neocomplcache_auto_completion_start_length = 3
-" smarrt caseÍ­¸ú²½¡£ ÂçÊ¸»ú¤¬ÆşÎÏ¤µ¤ì¤ë¤Ş¤ÇÂçÊ¸»ú¾®Ê¸»ú¤Î¶èÊÌ¤òÌµ»ë¤¹¤ë
+" smarrt caseæœ‰åŠ¹åŒ–ã€‚ å¤§æ–‡å­—ãŒå…¥åŠ›ã•ã‚Œã‚‹ã¾ã§å¤§æ–‡å­—å°æ–‡å­—ã®åŒºåˆ¥ã‚’ç„¡è¦–ã™ã‚‹
 let g:neocomplcache_enable_smart_case = 1
-" camle case¤òÍ­¸ú²½¡£ÂçÊ¸»ú¤ò¶èÀÚ¤ê¤È¤·¤¿¥ï¥¤¥ë¥É¥«¡¼¥É¤Î¤è¤¦¤Ë¿¶¤ëÉñ¤¦
+" camle caseã‚’æœ‰åŠ¹åŒ–ã€‚å¤§æ–‡å­—ã‚’åŒºåˆ‡ã‚Šã¨ã—ãŸãƒ¯ã‚¤ãƒ«ãƒ‰ã‚«ãƒ¼ãƒ‰ã®ã‚ˆã†ã«æŒ¯ã‚‹èˆã†
 let g:neocomplcache_enable_camel_case_completion = 1
-" _(¥¢¥ó¥À¡¼¥Ğ¡¼)¶èÀÚ¤ê¤ÎÊä´°¤òÍ­¸ú²½
+" _(ã‚¢ãƒ³ãƒ€ãƒ¼ãƒãƒ¼)åŒºåˆ‡ã‚Šã®è£œå®Œã‚’æœ‰åŠ¹åŒ–
 let g:neocomplcache_enable_underbar_completion = 1
-" ¥·¥ó¥¿¥Ã¥¯¥¹¤ò¥­¥ã¥Ã¥·¥å¤¹¤ë¤È¤­¤ÎºÇ¾®Ê¸»úÄ¹¤ò3¤Ë
+" ã‚·ãƒ³ã‚¿ãƒƒã‚¯ã‚¹ã‚’ã‚­ãƒ£ãƒƒã‚·ãƒ¥ã™ã‚‹ã¨ãã®æœ€å°æ–‡å­—é•·ã‚’3ã«
 let g:neocomplcache_min_syntax_length = 3
-" neocomplcache¤ò¼«Æ°Åª¤Ë¥í¥Ã¥¯¤¹¤ë¥Ğ¥Ã¥Õ¥¡Ì¾¤Î¥Ñ¥¿¡¼¥ó
+" neocomplcacheã‚’è‡ªå‹•çš„ã«ãƒ­ãƒƒã‚¯ã™ã‚‹ãƒãƒƒãƒ•ã‚¡åã®ãƒ‘ã‚¿ãƒ¼ãƒ³
 let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
-" -ÆşÎÏ¤Ë¤è¤ë¸õÊäÈÖ¹æ¤ÎÉ½¼¨
+" -å…¥åŠ›ã«ã‚ˆã‚‹å€™è£œç•ªå·ã®è¡¨ç¤º
 let g:neocomplcache_enable_quick_match = 1
-"¥İ¥Ã¥×¥¢¥Ã¥×¥á¥Ë¥å¡¼¤ÇÉ½¼¨¤µ¤ì¤ë¸õÊä¤Î¿ô¡£½é´üÃÍ¤Ï100
+"ãƒãƒƒãƒ—ã‚¢ãƒƒãƒ—ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã§è¡¨ç¤ºã•ã‚Œã‚‹å€™è£œã®æ•°ã€‚åˆæœŸå€¤ã¯100
 let g:neocomplcache_max_list = 20
-" Êä´°¸õÊä¤¬É½¼¨¤µ¤ì¤Æ¤¤¤ë¾ì¹ç¤Ï³ÎÄê¡£¤½¤¦¤Ç¤Ê¤¤¾ì¹ç¤Ï²ş¹Ô
+" è£œå®Œå€™è£œãŒè¡¨ç¤ºã•ã‚Œã¦ã„ã‚‹å ´åˆã¯ç¢ºå®šã€‚ãã†ã§ãªã„å ´åˆã¯æ”¹è¡Œ
 inoremap <expr><CR>  pumvisible() ? neocomplcache#close_popup() : "<CR>"
 
-" ½Ä¤ËÉ½¼¨¤¹¤ë
+" ç¸¦ã«è¡¨ç¤ºã™ã‚‹
 let g:treeExplVertical=1
 nmap <C-e> :VTreeExplore .<CR>
 
 " Grep
-" :Gb <args> ¤ÇGrepBuffer¤¹¤ë
+" :Gb <args> ã§GrepBufferã™ã‚‹
 command! -nargs=1 Gb :GrepBuffer <args>
-" ¥«¡¼¥½¥ë²¼¤ÎÃ±¸ì¤òGrepBuffer¤¹¤ë
+" ã‚«ãƒ¼ã‚½ãƒ«ä¸‹ã®å˜èªã‚’GrepBufferã™ã‚‹
 nnoremap <C-g><C-b> :<C-u>GrepBuffer<Space><C-r><C-w><Enter>
 
-colorscheme s2k1ta98
+" set tags è¨­å®š
 
-" set tags ÀßÄê
-
-" ¥¿¥°¥¸¥ã¥ó¥×¤òC-t ¤«¤é C-[ ¤Ë
+" ã‚¿ã‚°ã‚¸ãƒ£ãƒ³ãƒ—ã‚’C-t ã‹ã‚‰ C-[ ã«
 nmap <c-[>  :pop<CR>
 
-" ¥¹¥Æ¡¼¥¿¥¹¥é¥¤¥ó¤ÎÉ½¼¨
-set statusline=%<     " ¹Ô¤¬Ä¹¤¹¤®¤ë¤È¤­¤ËÀÚ¤êµÍ¤á¤ë°ÌÃÖ
-set statusline+=[%n]  " ¥Ğ¥Ã¥Õ¥¡ÈÖ¹æ
-set statusline+=%m    " %m ½¤Àµ¥Õ¥é¥°
-set statusline+=%r    " %r ÆÉ¤ß¹ş¤ßÀìÍÑ¥Õ¥é¥°
-set statusline+=%h    " %h ¥Ø¥ë¥×¥Ğ¥Ã¥Õ¥¡¥Õ¥é¥°
-set statusline+=%w    " %w ¥×¥ì¥Ó¥å¡¼¥¦¥£¥ó¥É¥¦¥Õ¥é¥°
-set statusline+=%{'['.(&fenc!=''?&fenc:&enc).':'.&ff.']'}  "fenc¤Èff¤òÉ½¼¨
-set statusline+=%y    " ¥Ğ¥Ã¥Õ¥¡Æâ¤Î¥Õ¥¡¥¤¥ë¤Î¥¿¥¤¥×
-set statusline+=\     " ¶õÇò¥¹¥Ú¡¼¥¹
+" ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ãƒ©ã‚¤ãƒ³ã®è¡¨ç¤º
+set statusline=%<     " è¡ŒãŒé•·ã™ãã‚‹ã¨ãã«åˆ‡ã‚Šè©°ã‚ã‚‹ä½ç½®
+set statusline+=[%n]  " ãƒãƒƒãƒ•ã‚¡ç•ªå·
+set statusline+=%m    " %m ä¿®æ­£ãƒ•ãƒ©ã‚°
+set statusline+=%r    " %r èª­ã¿è¾¼ã¿å°‚ç”¨ãƒ•ãƒ©ã‚°
+set statusline+=%h    " %h ãƒ˜ãƒ«ãƒ—ãƒãƒƒãƒ•ã‚¡ãƒ•ãƒ©ã‚°
+set statusline+=%w    " %w ãƒ—ãƒ¬ãƒ“ãƒ¥ãƒ¼ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ãƒ•ãƒ©ã‚°
+set statusline+=%{'['.(&fenc!=''?&fenc:&enc).':'.&ff.']'}  "fencã¨ffã‚’è¡¨ç¤º
+set statusline+=%y    " ãƒãƒƒãƒ•ã‚¡å†…ã®ãƒ•ã‚¡ã‚¤ãƒ«ã®ã‚¿ã‚¤ãƒ—
+set statusline+=\     " ç©ºç™½ã‚¹ãƒšãƒ¼ã‚¹
 if winwidth(0) >= 130
-    set statusline+=%F    "¥Ğ¥Ã¥Õ¥¡Æâ¤Î¥Õ¥¡¥¤¥ë¤Î¥Õ¥ë¥Ñ¥¹
+    set statusline+=%F    "ãƒãƒƒãƒ•ã‚¡å†…ã®ãƒ•ã‚¡ã‚¤ãƒ«ã®ãƒ•ãƒ«ãƒ‘ã‚¹
 else
-    set statusline+=%t    "¥Õ¥¡¥¤¥ëÌ¾¤Î¤ß
+    set statusline+=%t    "ãƒ•ã‚¡ã‚¤ãƒ«åã®ã¿
 endif
-set statusline+=%=    "º¸´ó¤»¹àÌÜ¤È±¦´ó¤»¹àÌÜ¤Î¶èÀÚ¤ê
-"set statusline+=%{fugitive#statusline()}  "Git¤Î¥Ö¥é¥ó¥ÁÌ¾¤òÉ½¼¨
-set statusline+=\ \   " ¶õÇò¥¹¥Ú¡¼¥¹2¸Ä
-set statusline+=%1l   ""²¿¹ÔÌÜ¤Ë¥«¡¼¥½¥ë¤¬¤¢¤ë¤«
+set statusline+=%=    "å·¦å¯„ã›é …ç›®ã¨å³å¯„ã›é …ç›®ã®åŒºåˆ‡ã‚Š
+"set statusline+=%{fugitive#statusline()}  "Gitã®ãƒ–ãƒ©ãƒ³ãƒåã‚’è¡¨ç¤º
+set statusline+=\ \   " ç©ºç™½ã‚¹ãƒšãƒ¼ã‚¹2å€‹
+set statusline+=%1l   ""ä½•è¡Œç›®ã«ã‚«ãƒ¼ã‚½ãƒ«ãŒã‚ã‚‹ã‹
 set statusline+=/
-set statusline+=%L    "¥Ğ¥Ã¥Õ¥¡Æâ¤ÎÁí¹Ô¿ô
+set statusline+=%L    "ãƒãƒƒãƒ•ã‚¡å†…ã®ç·è¡Œæ•°
 set statusline+=,
-set statusline+=%c    "²¿ÎóÌÜ¤Ë¥«¡¼¥½¥ë¤¬¤¢¤ë¤«
-set statusline+=%V    "²èÌÌ¾å¤Î²¿ÎóÌÜ¤Ë¥«¡¼¥½¥ë¤¬¤¢¤ë¤«
-set statusline+=\ \   "¶õÇò¥¹¥Ú¡¼¥¹2¸Ä
-set statusline+=%P    "¥Õ¥¡¥¤¥ëÆâ¤Î²¿¡ó¤Î°ÌÃÖ¤Ë¤¢¤ë¤«
+set statusline+=%c    "ä½•åˆ—ç›®ã«ã‚«ãƒ¼ã‚½ãƒ«ãŒã‚ã‚‹ã‹
+set statusline+=%V    "ç”»é¢ä¸Šã®ä½•åˆ—ç›®ã«ã‚«ãƒ¼ã‚½ãƒ«ãŒã‚ã‚‹ã‹
+set statusline+=\ \   "ç©ºç™½ã‚¹ãƒšãƒ¼ã‚¹2å€‹
+set statusline+=%P    "ãƒ•ã‚¡ã‚¤ãƒ«å†…ã®ä½•ï¼…ã®ä½ç½®ã«ã‚ã‚‹ã‹
 
 if has("clipboard") 
     vmap ,y "+y 
@@ -231,7 +234,7 @@ endfunction
 "  return s
 "endfunction "}}}
 "let &tabline = '%!'. s:SID_PREFIX() . 'my_tabline()'
-"set showtabline=2 " ¾ï¤Ë¥¿¥Ö¥é¥¤¥ó¤òÉ½¼¨
+"set showtabline=2 " å¸¸ã«ã‚¿ãƒ–ãƒ©ã‚¤ãƒ³ã‚’è¡¨ç¤º
 "
 "" The prefix key.
 "nnoremap    [Tag]   <Nop>
@@ -240,16 +243,16 @@ endfunction
 "for n in range(1, 9)
 "  execute 'nnoremap <silent> [Tag]'.n  ':<C-u>tabnext'.n.'<CR>'
 "endfor
-"" t1 ¤Ç1ÈÖº¸¤Î¥¿¥Ö¡¢t2 ¤Ç1ÈÖº¸¤«¤é2ÈÖÌÜ¤Î¥¿¥Ö¤Ë¥¸¥ã¥ó¥×
+"" t1 ã§1ç•ªå·¦ã®ã‚¿ãƒ–ã€t2 ã§1ç•ªå·¦ã‹ã‚‰2ç•ªç›®ã®ã‚¿ãƒ–ã«ã‚¸ãƒ£ãƒ³ãƒ—
 
 map <silent> [Tag]c :tablast <bar> tabnew<CR>
-" tc ¿·¤·¤¤¥¿¥Ö¤ò°ìÈÖ±¦¤Ëºî¤ë
+" tc æ–°ã—ã„ã‚¿ãƒ–ã‚’ä¸€ç•ªå³ã«ä½œã‚‹
 map <silent> [Tag]x :tabclose<CR>
-" tx ¥¿¥Ö¤òÊÄ¤¸¤ë
+" tx ã‚¿ãƒ–ã‚’é–‰ã˜ã‚‹
 map <silent> [Tag]n :tabnext<CR>
-" tn ¼¡¤Î¥¿¥Ö
+" tn æ¬¡ã®ã‚¿ãƒ–
 map <silent> [Tag]p :tabprevious<CR>
-" tp Á°¤Î¥¿¥Ö
+" tp å‰ã®ã‚¿ãƒ–
 
 
 
@@ -260,7 +263,7 @@ autocmd FileType php let g:AutoComplPop_CompleteOption = '.,w,b,u,t,i,k~/.vim/di
 autocmd FileType tpl let g:AutoComplPop_CompleteOption = '.,w,b,u,t,i,k~/.vim/dict/php.dict'
 
 
-"<TAB>¤ÇÊä´°
+"<TAB>ã§è£œå®Œ
 " {{{ Autocompletion using the TAB key
 " This function determines, wether we are on the start of the line text (then tab indents) or
     " if we want to try autocompletion

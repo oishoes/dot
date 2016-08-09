@@ -3,7 +3,7 @@ export TERM='xterm-256color'
 export EDITOR=vim
 #bindkey -v  # vim keybind
 bindkey -e  # emacs keybind
-export LANG=ja_JP.EUC-JP
+export LANG=en_US.UTF-8
 #export LESSCHARSET=utf-JP
 # ビープ音を鳴らさないようにする
 setopt no_beep
@@ -32,6 +32,15 @@ setopt correct                  # コマンドのスペルチェック
 setopt no_clobber               # 上書きリダイレクトの禁止
 setopt path_dirs                # コマンド名に / が含まれている時PATH中のサブディレクトリを探す
 
+#alias
+alias gitst='git status'
+alias ls="ls -G -w"
+alias la="ls -a"
+alias lf="ls -F"
+alias ll="ls -l"
+alias du="du -h"
+alias df="df -h"
+alias su="su -l"
 
 # コマンド履歴
 HISTFILE=~/.zsh_history
@@ -165,6 +174,5 @@ export MYSQL_PS1=$'[\e[36m\\R:\\m:\\s\e[0m] \e[32m\\u@\\h:\\p\e[0m \\d\\nmysql> 
 esac
 
 [ -f ~/.zshrc.mine ] && source ~/.zshrc.mine
-
 
 PATH=$PATH:/home/shota-oiyama/bin

@@ -2,7 +2,6 @@
     name = oishoes
     email = soiyama113@gmail.com
 [color]
-    # color������(�ʲ��Υ��ޥ�ɤϼ�ư�ǿ��Ĥ���)
     status = auto
     branch = auto
     interactive = auto
@@ -10,8 +9,50 @@
     ui = auto
 [core]
     editor = vim
-    pager = lv -c
+#    pager = lv -c
 [alias]
-    dw = diff --color-words -w
+    st = status
+    sh = show
+    so = remote show origin
+    ft = fetch
+    up = pull --rebase       # pull rebase
+    rbm = rebase master      # masterへのrebaseはよく使うのでalias
+    ad = add
+    cm = commit -m           # Commit
+    ci = commit -a           # modifiedなファイルを全てstageへ
+    cam = commit -a --amend  # 直前のcommitを修正
     co = checkout
-    gr = grep -n -I --cached
+
+    br = branch
+    ba = branch -a           # originも含めた全てのbranchを表示
+    bm = branch --merged     # merge済みのbranchを表示
+    bn = branch --no-merged  # mergeしてないbranchを表示
+
+    wc = whatchanged         # logに変更されたファイルも一緒に出す
+    ls = log --stat          # logに変更されたファイルも一緒に出す
+    lp = log -p              # diffも一緒に出す
+    la = log --pretty=\"format:%ad %h (%an): %s\" --date=short  # ざっくりログ出す
+    lr = log origin          # originのlog
+    oneline = log --pretty=oneline
+    ranking = shortlog -s -n --no-merges
+                                               # logをtree表示
+    log-graph = log --graph --date=short --pretty=format:'%Cgreen%h %cd %Cblue%cn %Creset%s'
+    log-all = log --graph --all --color --pretty='%x09%h %cn%x09%s %Cred%d%Creset'
+                                                     # diff関連
+    dm = diff master           # masterとのdiff
+    dw = diff --color-words -w
+    dc = diff --cached         # addされているものとのdiff
+    ds = diff --staged         # 同上(1.6.1移行)
+    d1 = diff HEAD~            # HEADから1つ前とdiff
+    d2 = diff HEAD~~           # HEADから2つ前とdiff
+    d3 = diff HEAD~~~          # HEADから3つ前とdiff
+    d4 = diff HEAD~~~~         # HEADから4つ前とdiff
+    d5 = diff HEAD~~~~~        # HEADから5つ前とdiff
+    d10 = diff HEAD~~~~~~~~~~  # HEADから10前とdiff
+# mergeの際にconflictが起きたファイルを編集
+    edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; vim `f`"
+# mergeの際にconflictが起きたファイルをadd
+    add-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`"
+
+    gr = grep
+    gn = grep -n -I --cached
